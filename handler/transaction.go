@@ -3,6 +3,7 @@ package handler
 import (
 	"api_gateway/model"
 	"api_gateway/utils"
+	"log"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -33,6 +34,7 @@ func (b *transactionImplement) TransferBank(g *gin.Context) {
 
 	defer db.Close()
 
+	log.Println(bodyPayloadTxn)
 	result := orm.Create(&bodyPayloadTxn)
 	if result.Error != nil {
 		g.AbortWithStatusJSON(http.StatusBadRequest, gin.H{

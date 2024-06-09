@@ -1,9 +1,7 @@
 package usecase
 
-import(
-	//"api_gateway/handler"
-	//"github.com/gin-gonic/gin"
-)
+//"api_gateway/handler"
+//"github.com/gin-gonic/gin"
 
 type Login struct {
 }

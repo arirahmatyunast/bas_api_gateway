@@ -8,6 +8,7 @@ import (
 
 	//"net/http"
 
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 	"github.com/go-micro/plugins/v4/client/grpc"
 	micro "go-micro.dev/v4"
@@ -20,6 +21,14 @@ import (
 
 func main() {
 	r := gin.Default()
+
+	r.Use(cors.New(cors.Config{
+
+		AllowOrigins:  []string{"*"},
+		AllowMethods:  []string{"*"},
+		AllowHeaders:  []string{"*"},
+		ExposeHeaders: []string{"*"},
+	}))
 
 	addressServiceTransactionOpt := client.WithAddress(":9000")
 	clientSrvTransaction := grpc.NewClient()
