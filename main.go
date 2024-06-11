@@ -58,7 +58,7 @@ func main() {
 	transactionRoute.GET("/get", func(g *gin.Context) {
 		clientResponse, err := proto.NewServiceTransactionService("service-transaction", srvTransaction.Client()).
 			Login(context.Background(), &proto.LoginRequest{
-				Username: "Daffa",
+				Username: "ari",
 			}, addressServiceTransactionOpt)
 
 		if err != nil {
